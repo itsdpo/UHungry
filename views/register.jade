@@ -1,0 +1,14 @@
+body
+    include ../views/header
+
+block content
+    p Enter your username and password below to register:
+    form(method = 'POST' action='/users')
+        .form-group
+            label(for='username') Username:
+            input#name.form-control(type='text' name='username')
+        .form-group
+            label(for='password') Password:
+            input#password.form-control(type='password' name='password')
+        .form-group
+            button.btn.btn-primary(type='submit') Register

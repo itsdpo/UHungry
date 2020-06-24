@@ -1,0 +1,25 @@
+html
+	head
+body
+	include ../views/header
+	br
+	
+	h1 Order #{order._id}
+
+	p
+		| Restaurant Name: #{order.restaurantName}
+		br
+		| Placed By: #{order.buyer}
+	h4 Order Contents:
+	p
+		each item in order.order
+			| #{item.name} X #{item.quantity}
+			br
+	h3 Subtotal: $#{order.subtotal}
+	p 
+		| Tax: $#{order.tax}
+		br
+		| Delivery Fee: $#{order.fee}
+		br
+		| Total: $#{order.total}
+	

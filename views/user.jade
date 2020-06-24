@@ -1,0 +1,28 @@
+html
+	head
+body
+	include ../views/header
+	h1 Profile for #{user}
+	if ownprofile
+		p Private Mode:
+		form(action="/users/" + id, method="POST")
+			if privacy == true
+				input(type="radio", name="privacy", value="true", checked)
+				| On
+				br
+				input(type="radio", name="privacy", value="false")
+				| Off
+				br
+			if privacy == false
+				input(type="radio", name="privacy", value="true")
+				| On
+				br
+				input(type="radio", name="privacy", value="false", checked)
+				| Off
+				br
+			button.btn.btn-primary(type='submit') Save
+	br
+	
+	each order in orders
+		a(href= "/orders/"+ order.id) #{order._id}
+		br
